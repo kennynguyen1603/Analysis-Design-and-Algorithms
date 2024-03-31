@@ -1,0 +1,53 @@
+vét cạn:
+1. Tìm Kiếm Tuyến Tính
+Mô tả: Tìm một phần tử cụ thể trong một danh sách hoặc mảng bằng cách kiểm tra từng phần tử một cho đến khi tìm thấy.
+2. Sắp Xếp (Sorting)
+Mô tả: Sắp xếp một danh sách các phần tử theo thứ tự tăng dần hoặc giảm dần. Các thuật toán sắp xếp cơ bản như Sắp xếp chọn (Selection Sort) hoặc Sắp xếp nổi bọt (Bubble Sort) có thể coi là các ví dụ của vét cạn.
+3. Bài Toán Tổ Hợp
+Mô tả: Liệt kê tất cả các tổ hợp hoặc hoán vị của một tập hợp cho trước, ví dụ như sinh tất cả các dãy nhị phân có độ dài n hoặc tất cả các hoán vị của một tập hợp.
+4. Bài Toán Con Đường Ngắn Nhất
+Mô tả: Tìm đường đi ngắn nhất giữa hai điểm trên một đồ thị. Mặc dù có các thuật toán hiệu quả hơn như Dijkstra hoặc A*, vét cạn có thể được sử dụng để kiểm tra mọi con đường có thể.
+5. Bài Toán Nữ Hoàng
+Mô tả: Đặt n nữ hoàng trên bàn cờ n x n sao cho không có hai nữ hoàng nào tấn công lẫn nhau. Vét cạn có thể kiểm tra tất cả các cách đặt có thể để tìm ra giải pháp.
+6. Bài Toán Knapsack (Balo)
+Mô tả: Cho một tập hợp các vật phẩm với trọng lượng và giá trị cụ thể, tìm tập con của các vật phẩm sao cho tổng trọng lượng không vượt quá một giới hạn nhất định và tổng giá trị là tối đa. Vét cạn có thể kiểm tra mọi tập con của các vật phẩm.
+7. Bài Toán Mã Đi Tuần
+Mô tả: Tìm một lộ trình cho quân mã trên bàn cờ vua sao cho nó đi qua mỗi ô đúng một lần. Vét cạn có thể thử mọi đường đi có thể.
+8. Crack Mật Khẩu
+Mô tả: Thử mọi kết hợp có thể của các ký tự để tìm ra mật khẩu. Đây là một ví dụ trong thực tế nơi vét cạn có thể được sử dụng, mặc dù thường không hiệu quả với mật khẩu dài và phức tạp.`
+
+Tham lam:
+Bài toán túi tiền (Fractional Knapsack): Cho một tập hợp các món hàng, mỗi món có một trọng lượng và một giá trị. Mục tiêu là chọn một tập hợp các món hàng sao cho trọng lượng tổng cộng không vượt quá một ngưỡng và tổng giá trị được tối đa. Thuật toán tham lam có thể được sử dụng để chọn món hàng với tỷ lệ giá trị/trọng lượng cao nhất.
+
+Bài toán lập lịch (Interval Scheduling): Cho một tập hợp các công việc với thời gian bắt đầu và kết thúc, mục tiêu là chọn một tập hợp các công việc sao cho số lượng công việc được chọn là lớn nhất và không có hai công việc nào trùng thời gian với nhau. Thuật toán tham lam có thể được sử dụng để chọn công việc kết thúc sớm nhất tại mỗi bước.
+
+Bài toán đèn pha (Minimum Vertex Cover in Tree): Cho một cây với các đỉnh được gắn với một chi phí, mục tiêu là chọn một tập hợp con của các đỉnh sao cho tổng chi phí là nhỏ nhất và mỗi cạnh trong cây đều có ít nhất một đỉnh thuộc tập hợp con. Thuật toán tham lam có thể được sử dụng để chọn các đỉnh sao cho chi phí nhỏ nhất.
+
+Bài toán chu trình Euler (Eulerian Circuit): Một chu trình Euler trong một đồ thị là một chu trình mà đi qua tất cả các cạnh của đồ thị một lần và chỉ một lần. Thuật toán tham lam có thể được sử dụng để tìm một chu trình Euler trong một số loại đồ thị.
+
+Bài toán đường đi ngắn nhất (Dijkstra's Algorithm): Mặc dù Dijkstra không phải là một thuật toán tham lam chính thống, nhưng nó có một phần thực thi tương tự. Thuật toán này được sử dụng để tìm đường đi ngắn nhất từ một đỉnh đến tất cả các đỉnh còn lại trong đồ thị có trọng số không âm.
+
+
+Bài toán người du lịch (Traveling Salesman Problem - TSP) là một bài toán kinh điển trong lĩnh vực tối ưu hóa. Bài toán đặt ra là tìm kiếm lộ trình ngắn nhất qua một tập các thành phố, sao cho mỗi thành phố được thăm đúng một lần và cuối cùng quay trở lại thành phố ban đầu. Nói cách khác, mục tiêu là tìm một chu trình Hamilton có tổng chi phí (thường được hiểu là khoảng cách hoặc thời gian di chuyển) nhỏ nhất qua tất cả các thành phố.
+
+Ví dụ
+Giả sử bạn có một bản đồ với 4 thành phố và khoảng cách giữa chúng như sau:
+
+Khoảng cách từ Thành phố A đến B, C, D lần lượt là 10, 15, 20.
+Khoảng cách từ Thành phố B đến A, C, D lần lượt là 10, 35, 25.
+Khoảng cách từ Thành phố C đến A, B, D lần lượt là 15, 35, 30.
+Khoảng cách từ Thành phố D đến A, B, C lần lượt là 20, 25, 30.
+Bài toán yêu cầu tìm một lộ trình sao cho tổng khoảng cách di chuyển giữa các thành phố là nhỏ nhất và sau khi thăm tất cả các thành phố, bạn quay lại thành phố bắt đầu.
+
+Các phương pháp giải quyết
+Phương pháp Brute Force: Kiểm tra tất cả các hoán vị có thể của các thành phố để tìm ra lộ trình ngắn nhất. Phương pháp này rất chính xác nhưng không khả thi về mặt thời gian tính toán khi số lượng thành phố tăng lên.
+
+Heuristic và Metaheuristic: Đây là các phương pháp tìm kiếm giải pháp gần đúng nhưng có thể thực thi trong thời gian hợp lý. Các phương pháp phổ biến bao gồm:
+
+Thuật toán Greedy: Chọn bước di chuyển tốt nhất tại mỗi bước mà không cần quan tâm đến các quyết định tương lai.
+Thuật toán Genetic: Sử dụng nguyên tắc tiến hóa tự nhiên để tìm lộ trình tối ưu.
+Simulated Annealing: Mô phỏng quá trình làm lạnh của kim loại, trong đó giải pháp được "làm nóng" để thoát khỏi các điểm tối ưu cục bộ trước khi "làm lạnh" dần để tiến tới giải pháp tối ưu toàn cầu.
+Phương pháp tối ưu hóa dựa trên ràng buộc: Xây dựng một mô hình toán học với các ràng buộc của bài toán và tìm giải pháp tối ưu bằng cách sử dụng các thuật toán tối ưu hóa.
+
+Ứng dụng
+TSP không chỉ là một bài toán lý thuyết mà còn được ứng dụng trong nhiều lĩnh vực thực tế như lập kế hoạch, vận tải và logistic, xây dựng các hệ thống giao hàng, thiết kế mạch điện tử, và nhiều lĩnh vực khác.
