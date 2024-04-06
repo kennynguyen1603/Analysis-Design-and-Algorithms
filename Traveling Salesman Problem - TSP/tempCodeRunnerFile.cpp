@@ -4,11 +4,8 @@
 #include <algorithm>
 #include <cmath>
 #include <limits>
-#include <filesystem>
-#include <string>
 
 using namespace std;
-namespace fs = std::filesystem; // Đặt bí danh cho không gian tên filesystem
 
 const int INF = numeric_limits<int>::max();
 
@@ -27,29 +24,45 @@ private:
 public:
     TravelingSalesman() {}
 
-    bool loadCitiesFromFile(const string &fileName)
+    void loadCitiesFromFile(const string &fileName)
     {
         ifstream file(fileName);
         if (!file.is_open())
-            return false;
-
-        cities.clear(); // Xóa các thành phố cũ trước khi đọc mới
-        int x, y;
-        while (file >> x >> y)
         {
-            cities.push_back({x, y});
+            cerr << "Khong the mo file: " << fileName << endl;
+            return;
+        }
+
+        string line;
+        bool startReading = false;
+
+        while (getline(file, line))
+        {
+            // Bỏ qua cho đến khi gặp NODE_COORD_SECTION
+            if (line.find("NODE_COORD_SECTION") != string::npos)
+            {
+                startReading = true;
+                continue;
+            }
+
+            // Dừng đọc khi gặp EOF
+            if (line.find("EOF") != string::npos || file.eof())
+                break;
+
+            if (startReading)
+            {
+                istringstream iss(line);
+                int id, x, y;
+                iss >> id >> x >> y; // Bỏ qua id vì không sử dụng trong bài toán TSP này
+                cities.push_back({x, y});
+            }
         }
         file.close();
-        return true;
     }
 
     int BruteForce(vector<int> &path)
     {
-        if (cities.empty())
-            return -1; // Trả về lỗi nếu không có thành phố nào
-
         vector<bool> visited(cities.size(), false);
-        path.clear(); // Xóa path cũ
         path.push_back(0);
         visited[0] = true;
         return tspBruteForce(path, visited, 0, 0);
@@ -80,39 +93,21 @@ private:
     }
 };
 
-void processDirectory(const string &directoryPath)
-{
-    TravelingSalesman tsp;
-
-    for (const auto &entry : fs::directory_iterator(directoryPath))
-    {
-        const auto &path = entry.path();
-        if (entry.is_regular_file() && path.extension() == ".txt")
-        { // Chỉ xử lý file .txt
-            vector<int> path;
-            cout << "Processing file: " << path << endl;
-            if (tsp.loadCitiesFromFile(path.string()))
-            {
-                int optimalLength = tsp.BruteForce(path);
-                cout << "Do dai duong di toi uu: " << optimalLength << endl;
-                cout << "Chu trinh toi uu: ";
-                for (int city : path)
-                {
-                    cout << city << " ";
-                }
-                cout << "0\n\n"; // Quay về thành phố ban đầu
-            }
-            else
-            {
-                cout << "Could not open file: " << path << endl;
-            }
-        }
-    }
-}
-
 int main()
 {
-    string directoryPath = "path/to/directory"; // Thay thế bằng đường dẫn thực tế của bạn
-    processDirectory(directoryPath);
+    TravelingSalesman tsp;
+    tsp.loadCitiesFromFile("cities.txt");
+
+    vector<int> path;
+    int optimalLength = tsp.BruteForce(path);
+
+    cout << "Do dai duong di toi uu: " << optimalLength << endl;
+    cout << "Chu trinh toi uu: ";
+    for (int city : path)
+    {
+        cout << city << " ";
+    }
+    cout << "0\n"; // Quay về thành phố ban đầu
+
     return 0;
 }
