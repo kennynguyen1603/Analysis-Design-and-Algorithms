@@ -1,14 +1,11 @@
-#ifndef FILEMANAGER_H
-#define FILEMANAGER_H
+// FileManager.h
+#pragma once
 
-#include "DistanceMatrix.h"
 #include <string>
-using namespace std;
+#include "../models/DistanceMatrix.h" // Assuming DistanceMatrix is defined in a separate file
 
 class FileManager
 {
 public:
-    static DistanceMatrix readMatrixFromFile(const string &fileName);
+    static DistanceMatrix readMatrixFromFile(const std::string &fileName);
 };
-
-#endif // FILEMANAGER_H

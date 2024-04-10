@@ -1,7 +1,9 @@
 #include "FileManager.h"
 #include <fstream>
 #include <sstream>
+#include <cmath>
 using namespace std;
+
 DistanceMatrix FileManager::readMatrixFromFile(const string &fileName)
 {
     ifstream file(fileName);

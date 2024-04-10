@@ -8,7 +8,8 @@ class DistanceMatrix
 {
 public:
     vector<vector<double>> matrix;
-    int size;
+
+    int size() const;
 
     DistanceMatrix(int size);
     void setDistance(int i, int j, double distance);

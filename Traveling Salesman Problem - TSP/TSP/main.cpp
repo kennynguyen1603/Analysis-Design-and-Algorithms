@@ -1,7 +1,7 @@
-// main.cpp
 #include "TSPSolver.h"
-#include "FileManager.h"
-
+#include "./utility/FileManager.h"
+#include <iostream>
+using namespace std;
 int main()
 {
     // Đọc dữ liệu ma trận khoảng cách từ file
@@ -9,7 +9,6 @@ int main()
 
     TSPSolver solver;
 
-    // Chọn thuật toán để giải quyết bài toán
     solver.solveWithACO(matrix);
 
     // solver.solveWithGA(matrix);
